@@ -17,15 +17,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const studentName = studentNameInput.value;
     const personalMessage = personalMessageInput.value;
-    const courseName = courseNameInput.value  "a course"; // Fallback to "a course" if no input
+    const courseName = courseNameInput.value || "a course"; // Fallback to "a course" if no input
 
-    if (studentName.trim() === ''  personalMessage.trim() === '') {
+    if (studentName.trim() === '' || personalMessage.trim() === '') {
       alert('Please fill in all fields');
       return;
     }
 
     // Generate certificate content dynamically
-certificateContent.innerHTML = 
+certificateContent.innerHTML = `
 <p><strong><h1>Certificate of Achievement</h1></strong></p>
 <p>this is to certify that</p>
 <h3>${studentName}</h3>
@@ -34,8 +34,8 @@ certificateContent.innerHTML =
 <p>with legendary perseverance and world-class bad-assery for never giving up</p>
 <img src="logo.png" width="700" height="200" alt="Certificate Image">
 <p>${personalMessage}</p>
-;
-
+`;
+  
     // Display the modal
     modal.style.display = 'block';
 
